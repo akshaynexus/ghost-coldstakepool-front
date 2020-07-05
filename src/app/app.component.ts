@@ -49,9 +49,9 @@ export class AppComponent implements OnInit {
     'zmqhost': '...',
     'rewardaddress': '...',
     'htmlhost': 'localhost',
-    'particlbindir': '...',
+    'ghostbindir': '...',
     'mode': '...',
-    'particldatadir': '...',
+    'ghostdatadir': '...',
     'zmqport': 0,
     'debug': true
   };
