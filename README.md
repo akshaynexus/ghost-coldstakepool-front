@@ -1,4 +1,4 @@
-# Ghost Cold-Staking Pool Front - GUI,forked frok particl's coldstaking gui
+# Ghost Cold-Staking Pool Front - GUI,forked from particl's coldstaking gui
 
 ![UI Preview](preview.jpg)
 
