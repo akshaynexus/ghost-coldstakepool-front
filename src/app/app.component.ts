@@ -1,63 +1,59 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { interval, Observable } from 'rxjs';
+import { Component, ViewChild, OnInit } from "@angular/core";
+import { interval, Observable } from "rxjs";
 
-import { Chart } from 'chart.js';
-import { environment } from '../environments/environment';
-import { RpcService } from './rpc.service';
+import { Chart } from "chart.js";
+import { environment } from "../environments/environment";
+import { RpcService } from "./rpc.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
-
   public api: any = {
-    'pooladdress': '...',
-    'pendingpayments': [],
-    'poolfeestotal': 0,
-    'poolwithdrawntotal': 0,
-    'poolmode': 'master',
-    'poolrewardtotal': 0,
-    'poolheight': 0,
-    'lastblocks': [
-    ],
-    'blocksfound': 0,
-    'stakeweight': 0,
-    'stakedbalance': 0,
-    'connections': 0,
-    'watchonlytotalbalance': 0,
-    'lastpaymentrunheight': 0,
-    'lastpayments': [
-    ]
+    pooladdress: "...",
+    pendingpayments: [],
+    poolfeestotal: 0,
+    poolwithdrawntotal: 0,
+    poolmode: "master",
+    poolrewardtotal: 0,
+    poolheight: 0,
+    lastblocks: [],
+    blocksfound: 0,
+    stakeweight: 0,
+    stakedbalance: 0,
+    connections: 0,
+    watchonlytotalbalance: 0,
+    lastpaymentrunheight: 0,
+    lastpayments: [],
   };
 
   public config: any = {
-    'pooladdress': '...',
-    'parameters': [
+    pooladdress: "...",
+    parameters: [
       {
-        'minoutputvalue': 0,
-        'height': 0,
-        'minblocksbetweenpayments': 0,
-        'payoutthreshold': 0,
-        'stakebonuspercent': 0,
-        'poolfeepercent': 0
-      }
+        minoutputvalue: 0,
+        height: 0,
+        minblocksbetweenpayments: 0,
+        payoutthreshold: 0,
+        stakebonuspercent: 0,
+        poolfeepercent: 0,
+      },
     ],
-    'htmlport': 0,
-    'startheight': 0,
-    'zmqhost': '...',
-    'rewardaddress': '...',
-    'htmlhost': 'localhost',
-    'ghostbindir': '...',
-    'mode': '...',
-    'ghostdatadir': '...',
-    'zmqport': 0,
-    'debug': true
+    htmlport: 0,
+    startheight: 0,
+    zmqhost: "...",
+    rewardaddress: "...",
+    htmlhost: "localhost",
+    ghostbindir: "...",
+    mode: "...",
+    ghostdatadir: "...",
+    zmqport: 0,
+    debug: true,
   };
 
-  private metrics: any = [
-    ];
+  private metrics: any = [];
 
   // Update timer
   private timer: Observable<number>;
@@ -66,7 +62,7 @@ export class AppComponent implements OnInit {
 
   // Total coins and block chart
   public chart: Chart;
-  @ViewChild('chartElem') chartElem;
+  @ViewChild('chartElem',{ static: true }) chartElem;
 
   constructor(private rpc: RpcService) {
     this.update();
@@ -79,12 +75,12 @@ export class AppComponent implements OnInit {
   }
 
   update(): void {
-    this.rpc.getConfig().subscribe(data => {
+    this.rpc.getConfig().subscribe((data) => {
       console.log(data);
       this.config = data;
     });
 
-    this.rpc.getJson().subscribe(data => {
+    this.rpc.getJson().subscribe((data) => {
       this.api = data;
     });
 
@@ -109,78 +105,83 @@ export class AppComponent implements OnInit {
   createChart(): void {
     const ctx = this.chartElem.nativeElement.getContext('2d');
     this.chart = new Chart(ctx, {
-      type: 'line',
+      type: "line",
       data: {
         labels: [],
-        datasets: [{
-          label: 'Total pooled coins',
-          borderColor: 'rgb(3, 232, 176,2)',
-          borderWidth: 3,
-          pointBorderWidth: 4,
-          pointBackgroundColor: 'rgb(34, 41, 41,2)',
-          pointBorderColor: 'rgba(250, 250, 250,2)',
-          data: [],
-        }, {
-          fill: 'origin',
-          label: 'Total blocks found',
-          data: [],
-        }]
+        datasets: [
+          {
+            label: "Total pooled coins",
+            borderColor: "rgb(3, 232, 176,2)",
+            borderWidth: 3,
+            pointBorderWidth: 4,
+            pointBackgroundColor: "rgb(34, 41, 41,2)",
+            pointBorderColor: "rgba(250, 250, 250,2)",
+            data: [],
+          },
+          {
+            fill: "origin",
+            label: "Total blocks found",
+            data: [],
+          },
+        ],
       },
       options: {
         responsive: true,
         title: {
           display: true,
-          text: ''
+          text: "",
         },
         tooltips: {
-          mode: 'index',
-          displayColors: false
+          mode: "index",
+          displayColors: false,
         },
         hover: {
-          mode: 'index'
+          mode: "index",
         },
         legend: {
           display: false,
         },
         scales: {
-          xAxes: [{
-            stacked: true,
-            scaleLabel: {
-              display: false,
-              labelString: ''
+          xAxes: [
+            {
+              stacked: true,
+              scaleLabel: {
+                display: false,
+                labelString: "",
+              },
+              gridLines: {
+                display: true,
+                color: "rgb(34, 41, 41,2)",
+                lineWidth: 0.5,
+              },
+              ticks: {
+                fontColor: "#CCC",
+                fontSize: 14,
+                fontFamily: "'Inter UI', sans-serif",
+              },
             },
-            gridLines: {
-              display: true,
-              color: 'rgb(34, 41, 41,2)',
-              lineWidth: 0.5
+          ],
+          yAxes: [
+            {
+              stacked: true,
+              scaleLabel: {
+                display: false,
+                labelString: "",
+              },
+              gridLines: {
+                display: false,
+              },
+              ticks: {
+                fontColor: "#CCC",
+                fontSize: 14,
+                fontFamily: "'Inter UI', sans-serif",
+              },
             },
-            ticks: {
-              fontColor: '#CCC',
-              fontSize: 14,
-              fontFamily: '\'Inter UI\', sans-serif'
-            },
-          }],
-          yAxes: [{
-            stacked: true,
-            scaleLabel: {
-              display: false,
-              labelString: ''
-            },
-            gridLines: {
-              display: false
-            },
-            ticks: {
-              fontColor: '#CCC',
-              fontSize: 14,
-              fontFamily: '\'Inter UI\', sans-serif'
-            },
-          }]
-        }
-      }
-
+          ],
+        },
+      },
     });
   }
-
 
   /**
    * Takes the metrics provided by the pool page and formats them to a more
@@ -188,11 +189,23 @@ export class AppComponent implements OnInit {
    * @param metric
    */
   getHumanReadableMetrics(metric: any) {
-    const m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    return metric.map(record => {
-
+    const m = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    return metric.map((record) => {
       // 2018-11 -> 11 -> November
-      const month = m[+record[0].split('-')[1] - 1];
+      const month = m[+record[0].split("-")[1] - 1];
 
       const total_coins = (record[2] / 100000000).toFixed(3);
       return [month, record[1], total_coins];
@@ -200,28 +213,32 @@ export class AppComponent implements OnInit {
   }
 
   getLabelsForMetrics(hrMetrics: any) {
-    return hrMetrics.map(record => record[0]);
+    return hrMetrics.map((record) => record[0]);
   }
 
   getBlocksForMetrics(hrMetrics: any) {
-    return hrMetrics.map(record => record[1]);
+    return hrMetrics.map((record) => record[1]);
   }
 
   getTotalCoinsForMetrics(hrMetrics: any) {
-    return hrMetrics.map(record => record[2]);
+    return hrMetrics.map((record) => record[2]);
   }
 
-  getBlockExplorerDomain(testnet: boolean){
-    var basedomain = "ghostscan.io"
-    if(testnet) basedomain = "testnet." + basedomain
-    return basedomain
+  getBlockExplorerDomain(testnet: boolean) {
+    var basedomain = "ghostscan.io";
+    if (testnet) basedomain = "testnet." + basedomain;
+    return basedomain;
   }
 
   getBlockExplorerUrlForBlock(block: string) {
-    return `https://${this.getBlockExplorerDomain(environment.testnet)}/block/${block}`;
+    return `https://${this.getBlockExplorerDomain(
+      environment.testnet
+    )}/block/${block}`;
   }
 
   getBlockExplorerUrlForTx(tx: string) {
-    return `https://${this.getBlockExplorerDomain(environment.testnet)}/tx/${tx}`;
+    return `https://${this.getBlockExplorerDomain(
+      environment.testnet
+    )}/tx/${tx}`;
   }
 }

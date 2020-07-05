@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environment';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../environments/environment";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class RpcService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   get url(): string {
-    return `${environment.url}${environment.testnet ? '/api/test' : '/api'}`;
+    return `${environment.url}${environment.testnet ? "/api/test" : "/api"}`;
   }
   // Uses http.get() to load data from a single API endpoint
   getConfig() {

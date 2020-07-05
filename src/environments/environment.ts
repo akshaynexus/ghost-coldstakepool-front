@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  url: '',
-  testnet: true
+  url: "",
+  testnet: true,
 };
