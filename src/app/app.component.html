@@ -1,16 +1,16 @@
 <!-- intro -->
 <section class="intro">
     <div class="container">
-        <div class="logo">
-            <a href="http://particl.io">
-                <img src="assets/img/particl-logotype.svg" alt="Particl.io" target="_blank">
+        <div class="logo" style="width:100px; margin:0 auto;">
+            <a href="http://ghostbymcafee.com">
+                <img src="assets/img/ghost-logotype.svg" alt="http://ghostbymcafee.com" target="_blank">
             </a>
         </div>
         <div class="section text-center">
             <img src="assets/img/cold-staking-logo.png" class="cold-staking-logo" alt="Cold Staking Logo">
             <div class="item pool-address">
                 <p class="text-lead">
-                    <span class="blue">PARTICL</span> COLD STAKING POOL
+                    <span class="blue">GHOST</span> COLD STAKING POOL
                 </p>
                 <div class="address-string">
                     <ngx-qrcode 
@@ -30,14 +30,14 @@
                     <div class="item">
                         <h3 class="title">Total Pooled Coins</h3>
                         <div class="amount ">{{ api.watchonlytotalbalance.toFixed(3) | number }}
-                            <small class="hide-for-s">PART</small>
+                            <small class="hide-for-s">GHOST</small>
                         </div>
                         <p class="desc ">Total combined user coins</p>
                     </div>
                     <div class="item">
                         <h3 class="title">Currently Staking</h3>
                         <div class="amount ">{{ api.stakeweight / 100000000 | number }}
-                            <small class="hide-for-s">PART</small>
+                            <small class="hide-for-s">GHOST</small>
                         </div>
                         <p class="desc ">Stakeweight</p>
                     </div>
@@ -101,7 +101,7 @@
                         </tr>
                         <tr>
                             <td class="table-shrink">
-                                <i class="icon icon-switch"></i>
+                                <i class="icon icon-switch icon-blue"></i>
                             </td>
                             <td>
                                 <b>Running</b>
@@ -123,7 +123,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-cog"></i>
+                                <i class="icon icon-cog icon-blue"></i>
                             </td>
                             <td>
                                 <b>Pool Fee</b>
@@ -134,7 +134,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-cog"></i>
+                                <i class="icon icon-cog icon-blue"></i>
                             </td>
                             <td>
                                 <b>Stake Bonus</b>
@@ -145,18 +145,18 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-cog"></i>
+                                <i class="icon icon-cog icon-blue"></i>
                             </td>
                             <td>
                                 <b>Payout Treshhold</b>
                             </td>
                             <td>
-                                <span class="text-meta">{{config.parameters[0].payoutthreshold}} PART</span>
+                                <span class="text-meta">{{config.parameters[0].payoutthreshold}} GHOST</span>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-grid"></i>
+                                <i class="icon icon-grid icon-blue"></i>
                             </td>
                             <td>
                                 <b>Blocks Between Payment Runs</b>
@@ -167,18 +167,18 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-cog"></i>
+                                <i class="icon icon-cog icon-blue"></i>
                             </td>
                             <td>
                                 <b>Minimum output value</b>
                             </td>
                             <td>
-                                <span class="text-meta">{{config.parameters[0].minoutputvalue}} PART</span>
+                                <span class="text-meta">{{config.parameters[0].minoutputvalue}} GHOST</span>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-refresh"></i>
+                                <i class="icon icon-refresh icon-blue"></i>
                             </td>
                             <td>
                                 <b>Synced Height</b>
@@ -189,7 +189,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-grid"></i>
+                                <i class="icon icon-grid icon-blue"></i>
                             </td>
                             <td>
                                 <b>Blocks Found</b>
@@ -200,7 +200,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-clock"></i>
+                                <i class="icon icon-clock icon-blue"></i>
                             </td>
                             <td>
                                 <b>Last Payment Run</b>
@@ -211,7 +211,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-stake"></i>
+                                <i class="icon icon-stake icon-blue"></i>
                             </td>
                             <td>
                                 <b>Total Pool Rewards</b>
@@ -222,7 +222,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-stake"></i>
+                                <i class="icon icon-stake icon-blue"></i>
                             </td>
                             <td>
                                 <b>Total Pool Fees</b>
@@ -233,7 +233,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-send"></i>
+                                <i class="icon icon-send icon-blue"></i>
                             </td>
                             <td>
                                 <b>Total Pool Rewards Withdrawn</b>
@@ -244,7 +244,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-stake"></i>
+                                <i class="icon icon-stake icon-blue"></i>
                             </td>
                             <td>
                                 <b>Total Pooled Coins</b>
@@ -255,7 +255,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <i class="icon icon-stake"></i>
+                                <i class="icon icon-stake icon-blue"></i>
                             </td>
                             <td>
                                 <b>Staked Balance</b>
@@ -349,10 +349,10 @@
                         </p>
                         <p>
                             <a href="https://github.com/particl/coldstakepool" target="_blank">
-                                <img src="assets/icons/github.svg" class="icon-github icon-blue" alt=""> Particl Cold-Staking Pool
+                                <img src="assets/icons/github.svg" class="icon-github icon-blue" alt=""> Backend forked from Particl Cold-Staking Pool
                             </a>
                             <a href="https://github.com/gerlofvanek/particl-coldstakepool-front" target="_blank">
-                                <img src="assets/icons/github.svg" class="icon-margin-10 icon-github icon-blue" alt=""> Particl Cold-Staking Pool GUI v1.0
+                                <img src="assets/icons/github.svg" class="icon-margin-10 icon-github icon-blue" alt=""> Frontend forked from Particl Cold-Staking Pool GUI v1.0
                             </a>
                         </p>
                     </div>

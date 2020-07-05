@@ -211,12 +211,17 @@ export class AppComponent implements OnInit {
     return hrMetrics.map(record => record[2]);
   }
 
+  getBlockExplorerDomain(testnet: boolean){
+    var basedomain = "ghostscan.io"
+    if(testnet) basedomain = "testnet." + basedomain
+    return basedomain
+  }
 
   getBlockExplorerUrlForBlock(block: string) {
-    return `https://explorer${ environment.testnet ?  '-testnet' : ''}.particl.io/block/${block}`;
+    return `https://${this.getBlockExplorerDomain(environment.testnet)}/block/${block}`;
   }
 
   getBlockExplorerUrlForTx(tx: string) {
-    return `https://explorer${ environment.testnet ?  '-testnet' : ''}.particl.io/tx/${tx}`;
+    return `https://${this.getBlockExplorerDomain(environment.testnet)}/tx/${tx}`;
   }
 }

@@ -1001,11 +1001,11 @@
  	margin: 0;
  }
  a {
- 	color: #04E8B0;
+ 	color: #044ce8;
  }
  a:focus,
  a:hover {
- 	color: #15fbc2;
+ 	color: #155efb;
  }
  .amount {
  	font-size: 1.35rem;
@@ -1092,7 +1092,7 @@
     Icons
    ========================================================================== */
  .icon {
- 	color: #03E8B0;
+ 	color: #0381e8;
 	font-weight: normal;
 	font-style: normal;
  }
