@@ -1,6 +1,6 @@
 # Ghost Cold-Staking Pool Front - GUI,forked from particl's coldstaking gui
 
-![UI Preview](preview.jpg)
+![UI Preview](preview.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.
 
